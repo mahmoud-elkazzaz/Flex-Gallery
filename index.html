@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link href="https://fonts.googleapis.com/css2?family=Notable&display=swap" rel="stylesheet">
+    <meta charset="utf-8">
+    <title>Flex Gallery</title>
+    <style>
+      html, body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+      }
+      p {
+        color: white;
+        text-transform: uppercase;
+        -webkit-text-stroke: 2px rgba(88.6, 34.5, 13.3);
+        font-family: 'Notable', sans-serif;
+      }
+      #panels {
+        display: flex;
+        min-height: 100vh;
+      }
+      .panel1{
+        background: url('300.jpg') center;
+        background-size: cover;
+        }
+      .panel2{
+        background: url('tomb-raider.png') center;
+        background-size: cover;
+        }
+      .panel3{
+        background: url('ac.png') center;
+        background-size: cover;
+      }
+      .panel4{
+        background: url('hunger-games.jpg') center;
+        background-size: cover;
+      }
+      .panel5{
+        background: url('black-panther.png') center;
+        background-size: cover;
+      }
+      .panel {
+        flex-grow: 1;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        display: flex;
+        transition: 1s;
+      }
+      .panel > *:first-child {
+        transform: translateY(-1000%);
+        transition: 1s ease-out;
+      }
+      .panel.open-active > *:first-child {
+        transform: translateY(0);
+      }
+      .panel > *:last-child {
+        transform: translateY(1000%);
+        transition: 1s ease-out;
+      }
+      .panel.open-active > *:last-child {
+        transform: translateY(0);
+       }
+       .panel.open {
+         font-size: 40px;
+         flex-grow: 5;
+       }
+
+    </style>
+  </head>
+  <body>
+    <div id="panels">
+      <div class="panel panel1">
+        <p class="top">Give</p>
+        <p class="center">Fight</p>
+        <p class="bottom">Survive</p>
+      </div>
+      <div class="panel panel2">
+        <p class="top">Adventures</p>
+        <p class="center">Worth</p>
+        <p class="bottom">Risks</p>
+      </div>
+      <div class="panel panel3">
+        <p class="top">Everything</p>
+        <p class="center">Is</p>
+        <p class="bottom">Permitted</p>
+      </div>
+      <div class="panel panel4">
+        <p class="top">Thanks</p>
+        <p class="center">Admiration</p>
+        <p class="bottom">Goodbye</p>
+      </div>
+      <div class="panel panel5">
+        <p class="top">Light</p>
+        <p class="center">Over</p>
+        <p class="bottom">Dark</p>
+      </div>
+    </div>
+    <script>
+        const panels = document.querySelectorAll('.panel');
+        function toggleOpen() {
+          this.classList.toggle('open');
+          this.classList.toggle('open-active');
+        }
+        panels.forEach(panel => panel.addEventListener('click', toggleOpen));
+
+        // function toggleActive(e) {
+        //   if(e.propertyName.includes('flex'))
+        //   this.classList.toggle('open-active');
+        // }
+        // panels.forEach(panel => panel.addEventListener('transitionend', toggleActive));
+
+    </script>
+  </body>
+</html>
